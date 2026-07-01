@@ -2,7 +2,7 @@ name: Build and Deploy Blog
 
 on:
   push:
-    branches: [ main ]  
+    branches: [ main ]
 
 permissions:
   contents: read
@@ -14,18 +14,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-
       - uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: npm
-
-      - run: npm install          
-      - run: npm run build  
-
+      - run: npm install
+      - run: npm run build
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: docs/.vitepress/dist  
+          path: docs/.vitepress/dist
 
   deploy:
     needs: build
