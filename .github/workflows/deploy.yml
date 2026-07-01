@@ -1,8 +1,12 @@
 name: Build and Deploy Blog
-on:
-  push:
-    branches: [ main ]
-jobs:
+ permissions:
+   contents: write
+   pages: write
+   id-token: write
+ on:
+   push:
+     branches: [ main ]
+ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
